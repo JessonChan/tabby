@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/mattn/go-gtk/gtk"
-	"github.com/mattn/go-gtk/gdk"
+	_"github.com/mattn/go-gtk/gdk"
 	"strings"
 )
 
@@ -62,7 +62,7 @@ func find_common(find_file bool) {
 
 // Returns true if pattern was found in current file, false o/w.
 func find_in_current_file(pattern string, global bool) bool {
-	var be, en gtk.GtkTextIter
+	var be, en gtk.TextIter
 	source_buf.GetSelectionBounds(&be, &en)
 	if find_next_instance(&en, &be, &en, pattern) {
 		move_focus_and_selection(&be, &en)
@@ -76,7 +76,8 @@ func find_in_current_file(pattern string, global bool) bool {
 }
 
 func find_dialog(find_file bool) (bool, string, bool, bool) {
-	dialog := gtk.Dialog()
+	/*
+	dialog := gtk.NewDialog()
 	defer dialog.Destroy()
 	dialog.SetTitle("Find")
 	dialog.AddButton("_Find", int(gtk.GTK_RESPONSE_ACCEPT))
@@ -111,5 +112,6 @@ func find_dialog(find_file bool) (bool, string, bool, bool) {
 		prev_global = global_button.GetActive()
 		return true, entry_text, prev_global, file_button.GetActive()
 	}
+	*/
 	return false, "", false, false
 }

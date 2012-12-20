@@ -4,7 +4,7 @@ import (
 	"syscall"
 	"unsafe"
 	"github.com/mattn/go-gtk/gdk"
-	"github.com/mattn/go-gtk/gtk"
+	_"github.com/mattn/go-gtk/gtk"
 )
 
 var name_by_wd map[int32]string
@@ -134,8 +134,9 @@ func inotify_observe_collect(buf []byte) map[string]int {
 
 // Returns true in case of reloading files, and false in case of keeping as is.
 func inotify_dialog(s map[string]int) bool {
+	/*
 	if nil == accel_group {
-		accel_group = gtk.AccelGroup()
+		accel_group = gtk.NewAccelGroup()
 	}
 	inotify_dlg := gtk.Dialog()
 	defer inotify_dlg.Destroy()
@@ -170,5 +171,6 @@ func inotify_dialog(s map[string]int) bool {
 	if int(gtk.GTK_RESPONSE_ACCEPT) == inotify_dlg.Run() {
 		return true
 	}
+	*/
 	return false
 }
